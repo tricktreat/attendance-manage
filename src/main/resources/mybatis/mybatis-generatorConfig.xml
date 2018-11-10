@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+
+    <!--<properties resource="mybatis-generatorConfig.properties"/>-->
+    <classPathEntry
+            location="src/main/resources/mysql-connector-java-5.1.6.jar"/>
+
+    <context id="context1">
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="Criteria"/>
+        </plugin>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 请修改此处地址 -->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://115.159.58.187:3306/kcqd?useUnicode=true"
+                        userId="root"
+                        password="syl123456"/>
+        <!--<jdbcConnection connectionURL="jdbc:h2:file:./target/temp_db;DATABASE_TO_UPPER=false;"-->
+        <!--driverClass="org.h2.Driver"-->
+        <!--userId="sa" password=""/>-->
+
+        <javaModelGenerator targetPackage="cn.ibilidi.entity" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="cn.ibilidi.mapperxml" targetProject="src/main/java"/>
+        <javaClientGenerator targetPackage="cn.ibilidi.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+        <table tableName="xkb" domainObjectName="TBXk">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table tableName="feedback" domainObjectName="TbFeedback">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table tableName="glkcb" domainObjectName="TBGlkc">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table tableName="jsb" domainObjectName="TBJs">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="kcb" domainObjectName="TBKc">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="jxlb" domainObjectName="TBJxl">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="kkry" domainObjectName="TBKkry">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="qdb" domainObjectName="TBQd">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="qdddb" domainObjectName="TBQddd">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="users" domainObjectName="TBUser">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="xsb" domainObjectName="TBXs">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

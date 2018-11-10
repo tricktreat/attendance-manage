@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ibilidi.mapper.ExcelMapper">
+    <resultMap id="XkResultMap" type="cn.ibilidi.entity.TBXk">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="kch" jdbcType="VARCHAR" property="kch" />
+        <result column="kcmc" jdbcType="VARCHAR" property="kcmc" />
+    </resultMap>
+    <insert id="batchXkInsert" parameterType="java.util.List">
+        INSERT  INTO xkb(id,name,kch,kcmc)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.name},#{item.kch},#{item.kcmc})
+
+        </foreach>
+    </insert>
+
+    <resultMap id="JsResultMap" type="cn.ibilidi.entity.TBJs">
+        <id column="jsh" jdbcType="VARCHAR" property="jsh" />
+        <result column="jsxm" jdbcType="VARCHAR" property="jsxm" />
+    </resultMap>
+    <insert id="batchJsInsert" parameterType="java.util.List">
+        INSERT  INTO jsb(jsh,jsxm)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.jsh},#{item.jsxm})
+
+        </foreach>
+    </insert>
+
+    <resultMap id="KcResultMap" type="cn.ibilidi.entity.TBKc">
+        <id column="kch" jdbcType="VARCHAR" property="kch" />
+        <result column="kcmc" jdbcType="VARCHAR" property="kcmc" />
+        <result column="jsh" jdbcType="VARCHAR" property="jsh" />
+        <result column="jsxm" jdbcType="VARCHAR" property="jsxm" />
+        <result column="sksj" jdbcType="VARCHAR" property="sksj" />
+        <result column="skdd" jdbcType="VARCHAR" property="skdd" />
+        <result column="allowornot" jdbcType="INTEGER" property="allowornot" />
+    </resultMap>
+    <insert id="batchKcInsert" parameterType="java.util.List">
+        INSERT  INTO kcb(kch,kcmc,jsh,jsxm,sksj,skdd)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.kch},#{item.kcmc},#{item.jsh},#{item.jsxm},#{item.sksj},#{item.skdd})
+
+        </foreach>
+    </insert>
+
+    <resultMap id="XsResultMap" type="cn.ibilidi.entity.TBXs">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="zy" jdbcType="VARCHAR" property="zy" />
+        <result column="bj" jdbcType="VARCHAR" property="bj" />
+        <result column="nj" jdbcType="VARCHAR" property="nj" />
+    </resultMap>
+    <insert id="batchXsInsert" parameterType="java.util.List">
+        INSERT  INTO xsb(id,name,zy,bj,nj)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.name},#{item.zy},#{item.bj},#{item.nj})
+
+        </foreach>
+    </insert>
+
+    <resultMap id="GlkcResultMap" type="cn.ibilidi.entity.TBGlkc">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="kch" jdbcType="VARCHAR" property="kch" />
+        <result column="xh" jdbcType="VARCHAR" property="xh" />
+    </resultMap>
+    <insert id="batchGlkcInsert" parameterType="java.util.List">
+        INSERT  INTO glkcb(xh,kch)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.xh},#{item.kch})
+
+        </foreach>
+    </insert>
+
+    <resultMap id="UserResultMap" type="cn.ibilidi.entity.TBUser">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="openid" jdbcType="VARCHAR" property="openid" />
+        <result column="headurl" jdbcType="VARCHAR" property="headurl" />
+        <result column="gender" jdbcType="VARCHAR" property="gender" />
+    </resultMap>
+    <insert id="batchUserInsert" parameterType="java.util.List">
+        INSERT  INTO users(id,name)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.name})
+
+        </foreach>
+    </insert>
+
+
+</mapper>
